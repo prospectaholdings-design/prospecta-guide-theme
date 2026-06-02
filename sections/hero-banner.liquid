@@ -1,0 +1,197 @@
+{%- style -%}
+  .hero-banner {
+    background: linear-gradient(135deg, {{ section.settings.bg_color }} 0%, {{ section.settings.overlay_color }} 100%);
+    min-height: {{ section.settings.height }}px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: {{ section.settings.text_color }};
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .hero-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="1"/></pattern></defs><rect width="1200" height="600" fill="rgba(0,0,0,.02)"/><rect width="1200" height="600" fill="url(%23grid)"/></svg>');
+    opacity: {{ section.settings.pattern_opacity }};
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    padding: 40px;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(2rem, 8vw, 4rem);
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-content p {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    margin-bottom: 30px;
+    opacity: 0.95;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hero-btn {
+    padding: 14px 32px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid;
+  }
+
+  .btn-primary {
+    background: {{ section.settings.cta_bg }};
+    color: {{ section.settings.cta_text }};
+    border-color: {{ section.settings.cta_bg }};
+  }
+
+  .btn-primary:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: {{ section.settings.text_color }};
+    border-color: {{ section.settings.text_color }};
+  }
+
+  .btn-secondary:hover {
+    background: rgba(255,255,255,0.1);
+  }
+{%- endstyle -%}
+
+<section class="hero-banner">
+  <div class="hero-content">
+    <h1>{{ section.settings.heading }}</h1>
+    <p>{{ section.settings.subheading }}</p>
+    
+    {% if section.settings.primary_cta_label != blank %}
+      <div class="hero-buttons">
+        <a href="{{ section.settings.primary_cta_link }}" class="hero-btn btn-primary">
+          {{ section.settings.primary_cta_label }}
+        </a>
+        {% if section.settings.secondary_cta_label != blank %}
+          <a href="{{ section.settings.secondary_cta_link }}" class="hero-btn btn-secondary">
+            {{ section.settings.secondary_cta_label }}
+          </a>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero Banner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Strategic Clarity Creates Leverage"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Build scalable business systems and digital leverage for modern founders"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#1A1A1A"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay Color",
+      "default": "#2D2D2D"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "cta_bg",
+      "label": "CTA Button Background",
+      "default": "#B08D57"
+    },
+    {
+      "type": "color",
+      "id": "cta_text",
+      "label": "CTA Button Text",
+      "default": "#1A1A1A"
+    },
+    {
+      "type": "range",
+      "id": "height",
+      "label": "Height (px)",
+      "min": 300,
+      "max": 800,
+      "step": 50,
+      "default": 600
+    },
+    {
+      "type": "range",
+      "id": "pattern_opacity",
+      "label": "Pattern Opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "default": 0.3
+    },
+    {
+      "type": "text",
+      "id": "primary_cta_label",
+      "label": "Primary CTA Label",
+      "default": "Explore Systems"
+    },
+    {
+      "type": "url",
+      "id": "primary_cta_link",
+      "label": "Primary CTA Link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_cta_label",
+      "label": "Secondary CTA Label",
+      "default": "Learn More"
+    },
+    {
+      "type": "url",
+      "id": "secondary_cta_link",
+      "label": "Secondary CTA Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Banner"
+    }
+  ]
+}
+{% endschema %}
