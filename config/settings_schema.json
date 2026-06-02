@@ -1,0 +1,158 @@
+[
+  {
+    "name": "Brand & Colors",
+    "settings": [
+      {
+        "type": "text",
+        "id": "brand_name",
+        "label": "Brand Name",
+        "default": "PROSPECTA GUIDE"
+      },
+      {
+        "type": "color",
+        "id": "color_primary_bg",
+        "label": "Primary Background",
+        "default": "#F5F1E8"
+      },
+      {
+        "type": "color",
+        "id": "color_dark_bg",
+        "label": "Dark Background",
+        "default": "#1A1A1A"
+      },
+      {
+        "type": "color",
+        "id": "color_text_primary",
+        "label": "Primary Text",
+        "default": "#111111"
+      },
+      {
+        "type": "color",
+        "id": "color_text_secondary",
+        "label": "Secondary Text",
+        "default": "#3A3A3A"
+      },
+      {
+        "type": "color",
+        "id": "color_accent_gold",
+        "label": "Accent Gold",
+        "default": "#B08D57"
+      },
+      {
+        "type": "color",
+        "id": "color_accent_bronze",
+        "label": "Accent Bronze",
+        "default": "#8A6A43"
+      },
+      {
+        "type": "color",
+        "id": "color_accent_burgundy",
+        "label": "Accent Burgundy",
+        "default": "#5B2E2E"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "text",
+        "id": "font_heading",
+        "label": "Heading Font (CSS family name)",
+        "default": "Clash Display, sans-serif"
+      },
+      {
+        "type": "text",
+        "id": "font_body",
+        "label": "Body Font (CSS family name)",
+        "default": "Inter, sans-serif"
+      },
+      {
+        "type": "text",
+        "id": "font_accent",
+        "label": "Accent Font (CSS family name)",
+        "default": "Satoshi, sans-serif"
+      }
+    ]
+  },
+  {
+    "name": "Founder & Brand",
+    "settings": [
+      {
+        "type": "text",
+        "id": "founder_name",
+        "label": "Founder/Brand Name",
+        "default": "PROSPECTA GUIDE"
+      },
+      {
+        "type": "richtext",
+        "id": "founder_bio",
+        "label": "Founder Bio",
+        "default": "<p>PROSPECTA GUIDE is a modern business intelligence platform helping entrepreneurs build scalable systems, digital leverage, strategic profitability, and long-term business clarity through founder-led frameworks, automation insights, and premium educational ecosystems.</p>"
+      },
+      {
+        "type": "image_picker",
+        "id": "founder_image",
+        "label": "Founder Image"
+      },
+      {
+        "type": "text",
+        "id": "founder_tagline",
+        "label": "Founder Tagline",
+        "default": "Strategic clarity creates leverage."
+      }
+    ]
+  },
+  {
+    "name": "Newsletter",
+    "settings": [
+      {
+        "type": "text",
+        "id": "newsletter_title",
+        "label": "Newsletter Title",
+        "default": "The Builder Intelligence Letter"
+      },
+      {
+        "type": "text",
+        "id": "newsletter_subtitle",
+        "label": "Newsletter Subtitle",
+        "default": "Weekly founder insights on business systems, AI leverage, profitability, and strategic growth."
+      },
+      {
+        "type": "text",
+        "id": "newsletter_form_action",
+        "label": "Newsletter Form Action URL",
+        "default": "/contact/newsletter"
+      }
+    ]
+  },
+  {
+    "name": "Social & SEO",
+    "settings": [
+      {
+        "type": "text",
+        "id": "social_twitter",
+        "label": "Twitter Handle",
+        "default": "@prospecta"
+      },
+      {
+        "type": "text",
+        "id": "social_linkedin",
+        "label": "LinkedIn URL",
+        "default": ""
+      },
+      {
+        "type": "text",
+        "id": "social_instagram",
+        "label": "Instagram Handle",
+        "default": ""
+      },
+      {
+        "type": "text",
+        "id": "meta_description",
+        "label": "Meta Description",
+        "default": "Premium business intelligence for modern founders. Strategic frameworks, AI automation, digital leverage, and profitability systems."
+      }
+    ]
+  }
+]
