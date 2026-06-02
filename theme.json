@@ -1,0 +1,24 @@
+{
+  "name": "PROSPECTA GUIDE",
+  "description": "A premium, founder-led business intelligence Shopify theme featuring cinematic editorial design, strategic frameworks, and modern wealth automation content.",
+  "author": "PROSPECTA HOLDINGS",
+  "theme_store_id": null,
+  "presets": {
+    "Default": {
+      "colors": {
+        "primary_bg": "#F5F1E8",
+        "dark_bg": "#1A1A1A",
+        "text_primary": "#111111",
+        "text_secondary": "#3A3A3A",
+        "accent_gold": "#B08D57",
+        "accent_bronze": "#8A6A43",
+        "accent_burgundy": "#5B2E2E"
+      },
+      "typography": {
+        "heading_font": "Clash Display",
+        "body_font": "Inter",
+        "accent_font": "Satoshi"
+      }
+    }
+  }
+}
