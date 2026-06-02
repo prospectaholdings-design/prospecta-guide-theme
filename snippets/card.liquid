@@ -1,0 +1,17 @@
+<div class="card {{ classes }}">
+  {% if image %}
+    <div class="mb-4">
+      <img src="{{ image }}" alt="{{ title }}" class="w-full h-auto rounded" loading="lazy" />
+    </div>
+  {% endif %}
+
+  <div class="card-body">
+    {% if title %}<h3 class="font-semibold text-xl mb-2">{{ title }}</h3>{% endif %}
+    {% if content %}<p class="text-gray-600">{{ content }}</p>{% endif %}
+    {% if url %}
+      <div class="mt-4">
+        <a href="{{ url }}" class="btn-primary">{{ button_text | default: 'Explore' }}</a>
+      </div>
+    {% endif %}
+  </div>
+</div>

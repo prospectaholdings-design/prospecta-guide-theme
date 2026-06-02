@@ -1,0 +1,14 @@
+{% layout 'theme' %}
+
+<article class="article-hero">
+  <div class="section-contained max-w-4xl">
+    {% if article.image %}
+      <img src="{{ article.image | image_url: width: 1200 }}" alt="{{ article.title }}" class="article-image" loading="lazy" />
+    {% endif %}
+
+    <h1 class="section-heading mb-4">{{ article.title }}</h1>
+    <p class="text-sm text-gray-600 mb-6">{{ 'blog.by_author' | t: author: article.author }} • {{ article.published_at | date: "%B %d, %Y" }}</p>
+
+    <div class="article-content">{{ article.content }}</div>
+  </div>
+</article>

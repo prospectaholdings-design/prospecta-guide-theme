@@ -1,0 +1,46 @@
+<header class="py-6 bg-transparent">
+  <div class="container flex items-center justify-between">
+    <div class="flex items-center gap-6">
+      <a href="/" class="flex items-center gap-3" aria-label="{{ shop.name }}">
+        <img src="{{ 'favicon.svg' | asset_url }}" alt="{{ shop.name }}" class="w-10 h-10" />
+        <span class="font-semibold text-lg">{{ settings.company_name }}</span>
+      </a>
+    </div>
+
+    <nav class="hidden md:flex items-center gap-6" aria-label="Main navigation">
+      <a href="/collections/systems" class="text-sm text-text-secondary hover:text-amber-700">Systems</a>
+      <a href="/collections/all" class="text-sm text-text-secondary hover:text-amber-700">Products</a>
+      <a href="/pages/about" class="text-sm text-text-secondary hover:text-amber-700">About</a>
+      <a href="/blogs/news" class="text-sm text-text-secondary hover:text-amber-700">Blog</a>
+      <a href="/pages/contact" class="btn-ghost">{{ 'buttons.contact_founder' | t }}</a>
+    </nav>
+
+    <!-- Mobile -->
+    <div class="md:hidden flex items-center">
+      <button aria-label="Open menu" data-mobile-menu-toggle class="p-2" aria-expanded="false">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div data-mobile-menu class="fixed inset-0 bg-white p-6 z-50 transform translate-y-full transition-transform duration-300 md:hidden no-scrollbar" aria-hidden="true">
+    <div class="flex items-center justify-between mb-8">
+      <a href="/" class="flex items-center gap-3">
+        <img src="{{ 'favicon.svg' | asset_url }}" alt="{{ shop.name }}" class="w-10 h-10" />
+        <span class="font-semibold">{{ settings.company_name }}</span>
+      </a>
+      <button aria-label="Close menu" data-mobile-menu-toggle class="p-2">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <nav class="flex flex-col gap-4">
+      <a href="/collections/systems" class="text-lg">Systems</a>
+      <a href="/collections/all" class="text-lg">Products</a>
+      <a href="/pages/about" class="text-lg">About</a>
+      <a href="/blogs/news" class="text-lg">Blog</a>
+      <a href="/pages/contact" class="text-lg">Contact</a>
+    </nav>
+  </div>
+</header>

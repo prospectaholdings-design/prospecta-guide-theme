@@ -1,0 +1,23 @@
+{% layout 'theme' %}
+
+<section class="section py-breathing">
+  <div class="section-contained">
+    <h1 class="section-heading mb-8">{{ collection.title }}</h1>
+    <p class="lead-text mb-12">{{ collection.description }}</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      {% for product in collection.products %}
+        <div class="product-card">
+          {% if product.featured_image %}
+            <img src="{{ product.featured_image | image_url: width: 400 }}" alt="{{ product.title }}" class="product-image" loading="lazy" />
+          {% endif %}
+          <div class="product-info">
+            <h3 class="product-title">{{ product.title }}</h3>
+            <p class="product-price">{{ product.price | money }}</p>
+            <a href="{{ product.url }}" class="btn-primary mt-4 inline-block">Explore</a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
