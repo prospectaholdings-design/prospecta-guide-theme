@@ -1,0 +1,10 @@
+# Ignore Shopify-specific files and directories
+config/settings_data.json
+# Ignore common development files
+.DS_Store
+.env
+.vscode/
+node_modules/
+# Ignore generated files
+*.log
+*.tmp

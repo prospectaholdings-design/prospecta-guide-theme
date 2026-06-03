@@ -1,0 +1,33 @@
+<section class="py-20 bg-dark-bg text-white text-center">
+  <div class="container max-w-4xl">
+    <h2 class="text-3xl md:text-5xl font-bold mb-8 leading-tight">
+      {{ section.settings.statement }}
+    </h2>
+    <div class="w-24 h-1 bg-accent-gold mx-auto"></div>
+  </div>
+</section>
+
+<style>
+  .bg-dark-bg { background-color: #1A1A1A; }
+  .text-white { color: #FFFFFF; }
+  .bg-accent-gold { background-color: #B08D57; }
+</style>
+
+{% schema %}
+{
+  "name": "Philosophy Statement",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "statement",
+      "label": "Philosophy Statement",
+      "default": "Strategic clarity creates leverage. We build systems for long-term business clarity."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Philosophy Statement"
+    }
+  ]
+}
+{% endschema %}

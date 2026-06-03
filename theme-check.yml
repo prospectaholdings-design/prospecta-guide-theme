@@ -1,0 +1,64 @@
+--- # Shopify Theme Check configuration
+# For more information, see: https://shopify.dev/docs/themes/tools/theme-check/configuration
+
+# Exclude files from checks
+exclude_files:
+  - "config/settings_data.json"
+
+# Define checks and their severity
+checks:
+  # Liquid checks
+  LiquidHtmlSyntax:
+    severity: error
+  LiquidTag:
+    severity: error
+  LiquidVariable:
+    severity: error
+  MissingTemplate:
+    severity: error
+  ParserBlockingScript:
+    severity: warning
+
+  # JSON checks
+  JsonSyntax:
+    severity: error
+  SchemaJson:
+    severity: error
+
+  # CSS/JS checks
+  AssetUrlFilters:
+    severity: warning
+  DeprecatedCssProperties:
+    severity: warning
+  MissingAsset:
+    severity: error
+
+  # Performance checks
+  AssetSize:
+    severity: warning
+    thresholds:
+      javascript: 100kb
+      css: 50kb
+      image: 500kb
+  ImageSize:
+    severity: warning
+  RenderBlockingAssets:
+    severity: warning
+
+  # Accessibility checks
+  ImageAlt:
+    severity: warning
+  LinkHasText:
+    severity: warning
+
+  # Best practices
+  TranslationKey:
+    severity: warning
+  UnusedSnippet:
+    severity: suggestion
+  SectionSchema:
+    severity: error
+  MissingSnippet:
+    severity: error
+  MissingSection:
+    severity: error
