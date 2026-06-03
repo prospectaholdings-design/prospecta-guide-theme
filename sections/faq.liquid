@@ -1,0 +1,95 @@
+<section class="py-20 bg-white">
+  <div class="container max-w-4xl">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold mb-4">{{ section.settings.title }}</h2>
+      <p class="text-lg text-gray-600">{{ section.settings.subtitle }}</p>
+    </div>
+
+    <div class="space-y-4">
+      {% for block in section.blocks %}
+        <div class="border-b border-gray-200 pb-4" data-faq-item>
+          <button class="w-full flex justify-between items-center py-4 text-left group" data-faq-toggle>
+            <span class="text-xl font-bold group-hover:text-accent-gold transition-colors">{{ block.settings.question }}</span>
+            <svg class="w-6 h-6 transform transition-transform duration-300" data-faq-icon fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="hidden pt-2 pb-6 text-gray-700 text-lg leading-relaxed" data-faq-content>
+            {{ block.settings.answer }}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const faqToggles = document.querySelectorAll('[data-faq-toggle]');
+    faqToggles.forEach(toggle => {
+      toggle.addEventListener('click', () => {
+        const item = toggle.closest('[data-faq-item]');
+        const content = item.querySelector('[data-faq-content]');
+        const icon = item.querySelector('[data-faq-icon]');
+        const isOpen = !content.classList.contains('hidden');
+
+        // Close all other items
+        document.querySelectorAll('[data-faq-content]').forEach(c => c.classList.add('hidden'));
+        document.querySelectorAll('[data-faq-icon]').forEach(i => i.classList.remove('rotate-180'));
+
+        if (!isOpen) {
+          content.classList.remove('hidden');
+          icon.classList.add('rotate-180');
+        }
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "FAQ",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Frequently Asked Questions"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Everything you need to know about our systems and frameworks."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "How do I get started with the frameworks?"
+        },
+        {
+          "type": "textarea",
+          "id": "answer",
+          "label": "Answer",
+          "default": "Begin by exploring our core intelligence letter and selecting the system that aligns with your current business stage."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ",
+      "blocks": [
+        { "type": "faq_item" },
+        { "type": "faq_item" },
+        { "type": "faq_item" }
+      ]
+    }
+  ]
+}
+{% endschema %}

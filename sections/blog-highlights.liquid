@@ -1,0 +1,75 @@
+<section class="py-20 bg-primary-bg">
+  <div class="container">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold mb-4">{{ section.settings.title }}</h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">{{ section.settings.subtitle }}</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+      {% assign blog = section.settings.blog %}
+      {% if blog != blank %}
+        {% for article in blog.articles limit: 2 %}
+          <article class="flex flex-col gap-6">
+            {% if article.image != blank %}
+              <div class="aspect-video overflow-hidden rounded-lg">
+                <img src="{{ article.image | img_url: '800x' }}" alt="{{ article.title }}" class="w-full h-full object-cover">
+              </div>
+            {% endif %}
+            <div>
+              <span class="text-accent-gold font-bold uppercase tracking-widest text-sm">{{ blog.title }}</span>
+              <h3 class="text-3xl font-bold mt-2 mb-4">
+                <a href="{{ article.url }}" class="hover:text-accent-gold transition-colors">{{ article.title }}</a>
+              </h3>
+              <p class="text-gray-700 text-lg mb-6">{{ article.excerpt_or_content | strip_html | truncatewords: 30 }}</p>
+              <a href="{{ article.url }}" class="font-bold border-b-2 border-accent-gold pb-1 hover:text-accent-gold transition-colors">Read Article &rarr;</a>
+            </div>
+          </article>
+        {% endfor %}
+      {% else %}
+        {% for i in (1..2) %}
+          <article class="flex flex-col gap-6">
+            <div class="aspect-video bg-gray-200 rounded-lg flex items-center justify-center text-gray-400">
+              Article Image Placeholder {{ i }}
+            </div>
+            <div>
+              <span class="text-accent-gold font-bold uppercase tracking-widest text-sm">Intelligence</span>
+              <h3 class="text-3xl font-bold mt-2 mb-4">The Future of Strategic Leverage</h3>
+              <p class="text-gray-700 text-lg mb-6">How modern founders are using AI and systems to build scalable, profitable businesses without the burnout.</p>
+              <a href="#" class="font-bold border-b-2 border-accent-gold pb-1">Read Article &rarr;</a>
+            </div>
+          </article>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Blog Highlights",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Builder Intelligence"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Deep dives into systems, strategy, and the future of work."
+    },
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "Blog"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Blog Highlights"
+    }
+  ]
+}
+{% endschema %}
